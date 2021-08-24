@@ -21,5 +21,8 @@ db.air_alliances.aggregate([
     _id: "$name",
     totalRotas: { $sum: "$numberOfInfo" },
   } },
+  { $sort: {
+    totalRotas: -1,
+  } },
   { $limit: 1 },
 ]);
